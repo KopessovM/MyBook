@@ -11,6 +11,7 @@ struct Books: Decodable {
     
     let id: Int
     let isbn, title, author: String
+    let enabled: Bool
     //let image: JSONNull?
     //let publishDate: String
     //let genreID: Int?

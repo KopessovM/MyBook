@@ -7,6 +7,7 @@
 
 import UIKit
 import Moya
+import Griffon_ios_spm
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -32,6 +33,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? BooksTableViewCell
         cell?.nameOfBook.text = books[indexPath.row].author
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailViewController()
+        
+        detailVC.authorOfBook.text = books[indexPath.row].author
+        detailVC.titleOfBook.text = books[indexPath.row].title
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

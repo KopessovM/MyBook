@@ -13,6 +13,9 @@
 		A428008825EFE49D00F6D5DC /* BooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A428008725EFE49D00F6D5DC /* BooksTableViewCell.swift */; };
 		A428008B25EFE64C00F6D5DC /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = A428008A25EFE64C00F6D5DC /* Books.swift */; };
 		A428008E25EFE6F800F6D5DC /* BooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A428008D25EFE6F800F6D5DC /* BooksService.swift */; };
+		A466910325F13F0800A32650 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466910225F13F0700A32650 /* DetailViewController.swift */; };
+		A466910725F1465000A32650 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466910625F1465000A32650 /* BooksViewModel.swift */; };
+		A4A18B0225F0FB3D00172447 /* Griffon_ios_spm in Frameworks */ = {isa = PBXBuildFile; productRef = A4A18B0125F0FB3D00172447 /* Griffon_ios_spm */; };
 		A4A5BAB125E988C400607810 /* RecommendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A5BAB025E988C400607810 /* RecommendationCollectionViewCell.swift */; };
 		A4A8FFCC25E97A3300653D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8FFCB25E97A3300653D27 /* AppDelegate.swift */; };
 		A4A8FFCE25E97A3300653D27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8FFCD25E97A3300653D27 /* SceneDelegate.swift */; };
@@ -28,6 +31,9 @@
 		A428008725EFE49D00F6D5DC /* BooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewCell.swift; sourceTree = "<group>"; };
 		A428008A25EFE64C00F6D5DC /* Books.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		A428008D25EFE6F800F6D5DC /* BooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksService.swift; sourceTree = "<group>"; };
+		A466910225F13F0700A32650 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A466910625F1465000A32650 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
+		A4A18AFE25F0FAF200172447 /* griffon-ios-spm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "griffon-ios-spm"; sourceTree = "<group>"; };
 		A4A5BAB025E988C400607810 /* RecommendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCollectionViewCell.swift; sourceTree = "<group>"; };
 		A4A8FFC825E97A3300653D27 /* MyBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A8FFCB25E97A3300653D27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,17 +55,27 @@
 				A428008525EFE39E00F6D5DC /* RxMoya in Frameworks */,
 				A428008125EFE39E00F6D5DC /* Moya in Frameworks */,
 				A428008325EFE39E00F6D5DC /* ReactiveMoya in Frameworks */,
+				A4A18B0225F0FB3D00172447 /* Griffon_ios_spm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4A18B0025F0FB3D00172447 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A4A8FFBF25E97A3300653D27 = {
 			isa = PBXGroup;
 			children = (
+				A4A18AFE25F0FAF200172447 /* griffon-ios-spm */,
 				A4A8FFCA25E97A3300653D27 /* MyBook */,
 				A4A8FFC925E97A3300653D27 /* Products */,
+				A4A18B0025F0FB3D00172447 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				A4A8FFE225E97A8200653D27 /* ViewModel */,
-				A4A8FFE325E97A9900653D27 /* ViewController */,
+				A4A8FFE325E97A9900653D27 /* View */,
 				A4A8FFE425E97AAA00653D27 /* Model */,
 			);
 			path = "Main Module";
@@ -94,20 +110,22 @@
 		A4A8FFE225E97A8200653D27 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A466910625F1465000A32650 /* BooksViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		A4A8FFE325E97A9900653D27 /* ViewController */ = {
+		A4A8FFE325E97A9900653D27 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				A4A8FFCF25E97A3300653D27 /* ViewController.swift */,
 				A4A8FFE725E97DAC00653D27 /* TabBarController.swift */,
 				A4BDC26925EF7447004CF8BA /* Recommendation.swift */,
 				A4A8FFEA25E982A000653D27 /* RecommendationView.swift */,
+				A466910225F13F0700A32650 /* DetailViewController.swift */,
 				A4A8FFF025E985FD00653D27 /* Cells */,
 			);
-			path = ViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
 		A4A8FFE425E97AAA00653D27 /* Model */ = {
@@ -159,6 +177,7 @@
 				A428008025EFE39E00F6D5DC /* Moya */,
 				A428008225EFE39E00F6D5DC /* ReactiveMoya */,
 				A428008425EFE39E00F6D5DC /* RxMoya */,
+				A4A18B0125F0FB3D00172447 /* Griffon_ios_spm */,
 			);
 			productName = MyBook;
 			productReference = A4A8FFC825E97A3300653D27 /* MyBook.app */;
@@ -216,6 +235,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A466910325F13F0800A32650 /* DetailViewController.swift in Sources */,
+				A466910725F1465000A32650 /* BooksViewModel.swift in Sources */,
 				A4A8FFD025E97A3300653D27 /* ViewController.swift in Sources */,
 				A4A8FFE825E97DAC00653D27 /* TabBarController.swift in Sources */,
 				A4A8FFEB25E982A000653D27 /* RecommendationView.swift in Sources */,
@@ -446,6 +467,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A428007F25EFE39E00F6D5DC /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		A4A18B0125F0FB3D00172447 /* Griffon_ios_spm */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Griffon_ios_spm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
