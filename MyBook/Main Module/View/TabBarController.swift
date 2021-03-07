@@ -23,7 +23,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
         mainPage.tabBarItem = tabOneBarItem
             
-            
             /*
             let tabTwo = TabTwoViewController()
             let tabTwoBarItem2 = UITabBarItem(title: "Tab 2", image: UIImage(named: "defaultImage2.png"), selectedImage: UIImage(named: "selectedImage2.png"))

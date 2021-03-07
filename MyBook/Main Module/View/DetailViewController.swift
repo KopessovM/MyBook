@@ -9,7 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    weak var mainVC = ViewController()
+    //var mainVC = ViewController()
     
     lazy var bookImageView: UIImageView = {
         let imageView = UIImageView()
@@ -37,13 +37,15 @@ class DetailViewController: UIViewController {
         button.setTitle("Rent", for: .normal)
         button.backgroundColor = .gray
         button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(rentBook), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(rentBook), for: .touchUpInside)
         return button
     }()
     
+    /*
     @objc func rentBook() {
-        print(mainVC?.books ?? "none")
+        print(mainVC.books ?? "none")
     }
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()

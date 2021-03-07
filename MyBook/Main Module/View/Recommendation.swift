@@ -38,6 +38,7 @@ class Recommendation: UIView {
         books.topAnchor.constraint(equalTo: logoAndLabel.bottomAnchor).isActive = true
         books.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         books.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        books.heightAnchor.constraint(equalToConstant: 170).isActive = true
         
     }
     
