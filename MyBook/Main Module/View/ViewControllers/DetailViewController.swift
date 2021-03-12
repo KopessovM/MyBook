@@ -8,14 +8,15 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-    //var mainVC = ViewController()
+    
+    private let viewModel = BooksViewModel()
+    var rentClick: (() -> ())?
+    var clickToFavorites: (() -> ())?
     
     lazy var bookImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 7
+        imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "Gatsby")
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -37,15 +38,29 @@ class DetailViewController: UIViewController {
         button.setTitle("Rent", for: .normal)
         button.backgroundColor = .gray
         button.setTitleColor(.white, for: .normal)
-        //button.addTarget(self, action: #selector(rentBook), for: .touchUpInside)
+        button.addTarget(self, action: #selector(rentBook), for: .touchUpInside)
         return button
     }()
     
-    /*
+    lazy var addToFavorite: UIButton = {
+       let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "heart"), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
+        return button
+    }()
+    
     @objc func rentBook() {
-        print(mainVC.books ?? "none")
+        if let rentClick = rentClick {
+            rentClick()
+        }
     }
-    */
+    
+    @objc func addToFavorites() {
+        if let clickToFavorites = clickToFavorites {
+            clickToFavorites()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,8 +76,8 @@ class DetailViewController: UIViewController {
         
         bookImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         bookImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        bookImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        bookImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        bookImageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        bookImageView.heightAnchor.constraint(equalToConstant: 340).isActive = true
         
         titleOfBook.topAnchor.constraint(equalTo: bookImageView.bottomAnchor, constant: 20).isActive = true
         titleOfBook.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -77,6 +92,4 @@ class DetailViewController: UIViewController {
         rent.widthAnchor.constraint(equalToConstant: 150).isActive = true
         rent.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-
-   
 }

@@ -15,6 +15,9 @@
 		A428008E25EFE6F800F6D5DC /* BooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A428008D25EFE6F800F6D5DC /* BooksService.swift */; };
 		A466910325F13F0800A32650 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466910225F13F0700A32650 /* DetailViewController.swift */; };
 		A466910725F1465000A32650 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466910625F1465000A32650 /* BooksViewModel.swift */; };
+		A489DCD525F8AB4800897BC2 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489DCD425F8AB4800897BC2 /* Rating.swift */; };
+		A489DCD925F8BC3200897BC2 /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489DCD825F8BC3200897BC2 /* SearchingViewController.swift */; };
+		A4A162E825FAA70D00F82437 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A162E725FAA70D00F82437 /* FavoritesViewController.swift */; };
 		A4A18B0225F0FB3D00172447 /* Griffon_ios_spm in Frameworks */ = {isa = PBXBuildFile; productRef = A4A18B0125F0FB3D00172447 /* Griffon_ios_spm */; };
 		A4A5BAB125E988C400607810 /* RecommendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A5BAB025E988C400607810 /* RecommendationCollectionViewCell.swift */; };
 		A4A8FFCC25E97A3300653D27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8FFCB25E97A3300653D27 /* AppDelegate.swift */; };
@@ -25,6 +28,7 @@
 		A4A8FFE825E97DAC00653D27 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8FFE725E97DAC00653D27 /* TabBarController.swift */; };
 		A4A8FFEB25E982A000653D27 /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8FFEA25E982A000653D27 /* RecommendationView.swift */; };
 		A4BDC26A25EF7447004CF8BA /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDC26925EF7447004CF8BA /* Recommendation.swift */; };
+		A4C803EF25F755E80046769D /* BookImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C803EE25F755E80046769D /* BookImageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,9 @@
 		A428008D25EFE6F800F6D5DC /* BooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksService.swift; sourceTree = "<group>"; };
 		A466910225F13F0700A32650 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A466910625F1465000A32650 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
+		A489DCD425F8AB4800897BC2 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		A489DCD825F8BC3200897BC2 /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
+		A4A162E725FAA70D00F82437 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		A4A18AFE25F0FAF200172447 /* griffon-ios-spm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "griffon-ios-spm"; sourceTree = "<group>"; };
 		A4A5BAB025E988C400607810 /* RecommendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCollectionViewCell.swift; sourceTree = "<group>"; };
 		A4A8FFC825E97A3300653D27 /* MyBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +52,7 @@
 		A4A8FFE725E97DAC00653D27 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A4A8FFEA25E982A000653D27 /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 		A4BDC26925EF7447004CF8BA /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
+		A4C803EE25F755E80046769D /* BookImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A489DCDC25F8BC4400897BC2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A4A8FFCF25E97A3300653D27 /* ViewController.swift */,
+				A466910225F13F0700A32650 /* DetailViewController.swift */,
+				A489DCD825F8BC3200897BC2 /* SearchingViewController.swift */,
+				A4A162E725FAA70D00F82437 /* FavoritesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		A4A18B0025F0FB3D00172447 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,11 +137,11 @@
 		A4A8FFE325E97A9900653D27 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A4A8FFCF25E97A3300653D27 /* ViewController.swift */,
 				A4A8FFE725E97DAC00653D27 /* TabBarController.swift */,
 				A4BDC26925EF7447004CF8BA /* Recommendation.swift */,
 				A4A8FFEA25E982A000653D27 /* RecommendationView.swift */,
-				A466910225F13F0700A32650 /* DetailViewController.swift */,
+				A489DCD425F8AB4800897BC2 /* Rating.swift */,
+				A489DCDC25F8BC4400897BC2 /* ViewControllers */,
 				A4A8FFF025E985FD00653D27 /* Cells */,
 			);
 			path = View;
@@ -133,6 +152,7 @@
 			children = (
 				A428008A25EFE64C00F6D5DC /* Books.swift */,
 				A428008D25EFE6F800F6D5DC /* BooksService.swift */,
+				A4C803EE25F755E80046769D /* BookImageService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,13 +255,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A489DCD925F8BC3200897BC2 /* SearchingViewController.swift in Sources */,
 				A466910325F13F0800A32650 /* DetailViewController.swift in Sources */,
+				A4C803EF25F755E80046769D /* BookImageService.swift in Sources */,
 				A466910725F1465000A32650 /* BooksViewModel.swift in Sources */,
 				A4A8FFD025E97A3300653D27 /* ViewController.swift in Sources */,
 				A4A8FFE825E97DAC00653D27 /* TabBarController.swift in Sources */,
 				A4A8FFEB25E982A000653D27 /* RecommendationView.swift in Sources */,
+				A489DCD525F8AB4800897BC2 /* Rating.swift in Sources */,
 				A4BDC26A25EF7447004CF8BA /* Recommendation.swift in Sources */,
 				A428008E25EFE6F800F6D5DC /* BooksService.swift in Sources */,
+				A4A162E825FAA70D00F82437 /* FavoritesViewController.swift in Sources */,
 				A428008825EFE49D00F6D5DC /* BooksTableViewCell.swift in Sources */,
 				A4A5BAB125E988C400607810 /* RecommendationCollectionViewCell.swift in Sources */,
 				A428008B25EFE64C00F6D5DC /* Books.swift in Sources */,

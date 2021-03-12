@@ -7,12 +7,16 @@
 
 import Foundation
 
-struct Books: Decodable {
+struct Root: Codable {
+    let books: [Books]
+}
+
+struct Books: Codable {
     
-    let id: Int
-    let isbn, title, author: String
-    let enabled: Bool
-    //let image: JSONNull?
+    var id: Int?
+    var isbn, title, author: String?
+    var enabled: Bool?
+    let image: String?
     //let publishDate: String
     //let genreID: Int?
     //let createdAt, updatedAt: String

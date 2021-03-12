@@ -19,6 +19,7 @@ class RecommendationView: UIStackView {
         let label = UILabel()
         label.text = "Recommendations"
         label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return label
     }()
     
@@ -30,8 +31,8 @@ class RecommendationView: UIStackView {
         }
         logo.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         logo.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        logo.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        logo.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        logo.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        logo.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         recommendationLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 20).isActive = true
         recommendationLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true

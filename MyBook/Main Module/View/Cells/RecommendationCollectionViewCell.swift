@@ -11,8 +11,8 @@ class RecommendationCollectionViewCell: UICollectionViewCell {
     
     lazy var recommendations: UIImageView = {
         let rec = UIImageView()
-        rec.layer.cornerRadius = 10
-        rec.layer.masksToBounds = false
+        rec.layer.cornerRadius = 5
+        rec.layer.masksToBounds = true
         return rec
     }()
     
@@ -24,14 +24,17 @@ class RecommendationCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     private func addViews() {
         self.addSubview(recommendations)
         recommendations.translatesAutoresizingMaskIntoConstraints = false
         
         recommendations.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         recommendations.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        recommendations.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        recommendations.widthAnchor.constraint(equalToConstant: 125).isActive = true
+        recommendations.heightAnchor.constraint(equalToConstant: 155).isActive = true
+        recommendations.widthAnchor.constraint(equalToConstant: 110).isActive = true
     }
+    
+    
     
 }
