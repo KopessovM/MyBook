@@ -29,6 +29,7 @@
 		A4A8FFEB25E982A000653D27 /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8FFEA25E982A000653D27 /* RecommendationView.swift */; };
 		A4BDC26A25EF7447004CF8BA /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDC26925EF7447004CF8BA /* Recommendation.swift */; };
 		A4C803EF25F755E80046769D /* BookImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C803EE25F755E80046769D /* BookImageService.swift */; };
+		A4FDE19725FBD7E50096B3C6 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDE19625FBD7E50096B3C6 /* FavoritesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		A4A8FFEA25E982A000653D27 /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 		A4BDC26925EF7447004CF8BA /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		A4C803EE25F755E80046769D /* BookImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageService.swift; sourceTree = "<group>"; };
+		A4FDE19625FBD7E50096B3C6 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				A466910625F1465000A32650 /* BooksViewModel.swift */,
+				A4FDE19625FBD7E50096B3C6 /* FavoritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				A4A8FFD025E97A3300653D27 /* ViewController.swift in Sources */,
 				A4A8FFE825E97DAC00653D27 /* TabBarController.swift in Sources */,
 				A4A8FFEB25E982A000653D27 /* RecommendationView.swift in Sources */,
+				A4FDE19725FBD7E50096B3C6 /* FavoritesViewModel.swift in Sources */,
 				A489DCD525F8AB4800897BC2 /* Rating.swift in Sources */,
 				A4BDC26A25EF7447004CF8BA /* Recommendation.swift in Sources */,
 				A428008E25EFE6F800F6D5DC /* BooksService.swift in Sources */,

@@ -23,16 +23,21 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
           
             let mainPage = ViewController()
-            let tabOneBarItem = UITabBarItem(title: "Books", image: UIImage(named: "book"), selectedImage: UIImage(named: "book"))
-            tabOneBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
-            mainPage.tabBarItem = tabOneBarItem
+            let tabFirstBarItem = UITabBarItem(title: "Books", image: UIImage(named: "book"), selectedImage: UIImage(named: "book"))
+            tabFirstBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+            mainPage.tabBarItem = tabFirstBarItem
             
             let searchPage = SearchingViewController()
-            let tabTwoBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), selectedImage: UIImage(named: "search"))
-            tabTwoBarItem.image = UIImage(named: "search")
-            tabTwoBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
-            searchPage.tabBarItem = tabTwoBarItem
-            self.viewControllers = [mainPage, searchPage]
+            let tabSecondBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), selectedImage: UIImage(named: "search"))
+            tabSecondBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+            searchPage.tabBarItem = tabSecondBarItem
+        
+            let favoritePage = FavoritesViewController()
+            let tabThirdBarItem = UITabBarItem(title: "Favorite", image: UIImage(named: "heartIcon"), selectedImage: UIImage(named: "heartIcon"))
+            tabThirdBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+            favoritePage.tabBarItem = tabThirdBarItem
+        
+            self.viewControllers = [mainPage, searchPage, favoritePage]
         }
         
         // UITabBarControllerDelegate method

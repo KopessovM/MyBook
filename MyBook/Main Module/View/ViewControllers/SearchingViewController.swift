@@ -36,13 +36,10 @@ class SearchingViewController: UIViewController {
         setUpViews()
         viewModel.getAllBooks { data in
             self.books = data
-            
             DispatchQueue.main.async {
                 self.myTableView.reloadData()
             }
-            
         }
-        
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         self.view.addGestureRecognizer(tap)
@@ -89,28 +86,37 @@ extension SearchingViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.authorOfBook.text = filteredBooks[indexPath.row].author
         return cell!
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailViewController()
+        detailVC.authorOfBook.text = books[indexPath.row].author
+        detailVC.titleOfBook.text = books[indexPath.row].title
+        viewModel.setBookImage(imagePath: books[indexPath.row].image ?? "nil", imageView: detailVC.bookImageView)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 
 extension SearchingViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredBooks = []
-        
+
         if searchText == "" {
-            filteredBooks = books
+            filteredBooks = []
         }
         else {
-            var i = 0
-            guard let titleOfBook = books[i].title else { return }
-            for book in titleOfBook {
-                if book.lowercased().contains(searchText.lowercased()) {
-                    filteredBooks.append(books[i])
-                    i += 1
-                }
+            if searchBar.selectedScopeButtonIndex == 0 {
+                filteredBooks = books.filter({ (book) -> (Bool) in
+                    return (book.title!.lowercased().contains(searchText.lowercased()))
+                })
+            }else {
+                filteredBooks = books.filter({ (book)-> Bool in
+                    return (book.author!.contains(searchText))
+                })
             }
         }
         self.myTableView.reloadData()
+        
     }
+    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard searchBar.text != nil else { return }
@@ -121,7 +127,3 @@ extension SearchingViewController: UISearchBarDelegate {
         //tableView.reloadData()
     }
 }
-
-
-
-

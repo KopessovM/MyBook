@@ -9,12 +9,12 @@ import UIKit
 import Moya
 import Griffon_ios_spm
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     
     var booksRecommendation = Recommendation()
     private let viewModel = BooksViewModel()
     var books = [Books]()
-    var transferToFavorites: (() -> ())?
+    var indicator = UIActivityIndicatorView(style: .medium)
     
     lazy var myTableView: UITableView = {
         let tableView = UITableView()
@@ -25,6 +25,58 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return tableView
     }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Books"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue", size: 24)!]
+        makeRequest()
+        setUpViews()
+    }
+
+}
+
+//MARK: - Request
+
+extension ViewController {
+    func makeRequest() {
+        indicator.startAnimating()
+        getAllBooks()
+    }
+    
+    func getAllBooks() {
+        viewModel.getAllBooks { data in
+            self.books = data
+            DispatchQueue.main.async {
+                self.myTableView.reloadData()
+                self.stopLoading()
+            }
+        }
+    }
+    /*
+    func getBookByID() {
+        viewModel.getBookByID(bookID: (books)!) { data in
+            self.books = data
+            DispatchQueue.main.async {
+                self.myTableView.reloadData()
+                self.stopLoading()
+            }
+        }
+    }
+    */
+}
+
+//MARK: - Methods
+
+extension ViewController {
+    func stopLoading() {
+        self.indicator.stopAnimating()
+        self.booksRecommendation.isHidden = false
+    }
+}
+
+//MARK: - UITableView
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
     }
@@ -40,16 +92,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = DetailViewController()
-        
+        /*
         detailVC.rentClick = { [weak self] in
             guard let self = self else { return }
             self.books[indexPath.row].enabled = true
         }
-        detailVC.clickToFavorites = { 
-            if let transferToFavorites = self.transferToFavorites {
-                transferToFavorites()
-            }
-        }
+        */
+        detailVC.favoriteBook = books[indexPath.row]
         
         detailVC.authorOfBook.text = books[indexPath.row].author
         detailVC.titleOfBook.text = books[indexPath.row].title
@@ -60,30 +109,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 175
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+}
+
+//MARK: - SetupViews
+
+extension ViewController {
+    private func setUpViews() {
         self.view.backgroundColor = .white
         self.title = "Books"
         
-        viewModel.getAllBooks { data in
-            self.books = data
-            DispatchQueue.main.async {
-                self.myTableView.reloadData()
-            }
-        }
-        
-        //self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue", size: 24)!]
-        setUpViews()
-      
-    }
-
-    private func setUpViews() {
         [myTableView, booksRecommendation].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
+        view.addSubview(indicator)
+        indicator.center = self.view.center
+        
+        booksRecommendation.isHidden = true
         booksRecommendation.backgroundColor = UIColor(red: 192, green: 191, blue: 221)
         booksRecommendation.layer.cornerRadius = 15
         
@@ -100,6 +143,4 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
     }
-
 }
-

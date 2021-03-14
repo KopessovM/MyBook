@@ -30,6 +30,23 @@ class BooksViewModel {
         }
     }
 
+    func getBookByID(bookID: Int, comp: @escaping ([Books])->()){
+        provider.request(.getBookByID(rentID: bookID)) { (result) in
+            switch result {
+            case .success(let response):
+                do {
+                    let loadRent = try JSONDecoder().decode([Books].self, from: response.data)
+                    print(loadRent)
+                    comp(loadRent)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
 
     let bookImageProvider = MoyaProvider<BooksImageService>()
         

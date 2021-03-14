@@ -10,8 +10,8 @@ import UIKit
 class DetailViewController: UIViewController {
     
     private let viewModel = BooksViewModel()
+    var favoriteBook: Books?
     var rentClick: (() -> ())?
-    var clickToFavorites: (() -> ())?
     
     lazy var bookImageView: UIImageView = {
         let imageView = UIImageView()
@@ -20,6 +20,33 @@ class DetailViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    
+    lazy var addToFavorite: UIButton = {
+       let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "heart"), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func addToFavorites() {
+        print("Tapped")
+        addToFavorite.setBackgroundImage(UIImage(named: "heart.filled"), for: .normal)
+        if let favoriteBooks = favoriteBook {
+            if !FavoritesViewModel.current.favoriteBooks.contains(where: { (books) -> Bool in
+                return books.title == favoriteBooks.title
+            }) {
+                FavoritesViewModel.current.favoriteBooks.append(favoriteBooks)
+            } else {
+                for i in 0..<FavoritesViewModel.current.favoriteBooks.count {
+                    if FavoritesViewModel.current.favoriteBooks[i].title == favoriteBooks.title {
+                        FavoritesViewModel.current.favoriteBooks.remove(at: i)
+                    }
+                }
+                addToFavorite.setBackgroundImage(UIImage(named: "heart"), for: .normal)
+            }
+        }
+    }
     
     lazy var titleOfBook: UILabel = {
         let label = UILabel()
@@ -42,23 +69,9 @@ class DetailViewController: UIViewController {
         return button
     }()
     
-    lazy var addToFavorite: UIButton = {
-       let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "heart"), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
-        return button
-    }()
-    
     @objc func rentBook() {
         if let rentClick = rentClick {
             rentClick()
-        }
-    }
-    
-    @objc func addToFavorites() {
-        if let clickToFavorites = clickToFavorites {
-            clickToFavorites()
         }
     }
     
@@ -69,7 +82,7 @@ class DetailViewController: UIViewController {
     }
     
     private func setUpViews() {
-        [bookImageView, titleOfBook, authorOfBook, rent].forEach {
+        [bookImageView, titleOfBook, authorOfBook, rent, addToFavorite].forEach {
             self.view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -91,5 +104,10 @@ class DetailViewController: UIViewController {
         rent.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         rent.widthAnchor.constraint(equalToConstant: 150).isActive = true
         rent.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        addToFavorite.topAnchor.constraint(equalTo: rent.bottomAnchor, constant: 20).isActive = true
+        addToFavorite.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        addToFavorite.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        addToFavorite.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }
